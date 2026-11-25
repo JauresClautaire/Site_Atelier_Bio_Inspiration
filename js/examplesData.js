@@ -11,8 +11,11 @@ const BIO_EXAMPLES = [
     inventionImage: "images/invention-shinkansen.jpg",
     inventionAlt: "Le train à grande vitesse japonais Shinkansen",
     inventionTitle: "Le train à grande vitesse Shinkansen",
-    inventionDesc: "Au Japon, l'ingénieur Eiji Nakatsu a redessiné l'avant du train en imitant le bec du martin-pêcheur : moins de bruit à la sortie des tunnels et 15 % d'électricité économisée.",
-    principle: "Principe scientifique : Aérodynamisme et réduction des ondes de pression."
+    inventionDesc: "Au Japon, l'ingénieur Eiji Nakatsu a redessiné l'avant du train en imitant le bec du martin-pêcheur : la forme réduit les ondes de pression à la sortie des tunnels et les économies d'électricité varient selon les lignes.",
+    principle: "Principe scientifique : Aérodynamisme et réduction des ondes de pression.",
+    sourceTitle: "Wikipedia — Shinkansen",
+    sourceUrl: "https://en.wikipedia.org/wiki/Shinkansen",
+    sourceNote: "Synthèse générale du train et de son évolution. Lire les références de l'article pour vérifier chaque détail."
   },
   {
     id: "burdock",
@@ -27,7 +30,10 @@ const BIO_EXAMPLES = [
     inventionAlt: "Gros plan sur une fermeture Velcro",
     inventionTitle: "La fermeture Velcro",
     inventionDesc: "En 1941, l'ingénieur suisse George de Mestral a observé ces crochets au microscope et a créé les bandes auto-agrippantes utilisées sur les chaussures et combinaisons spatiales.",
-    principle: "Principe scientifique : Fixation mécanique réversible par micro-crochets."
+    principle: "Principe scientifique : Fixation mécanique réversible par micro-crochets.",
+    sourceTitle: "VELCRO Brand — Notre histoire",
+    sourceUrl: "https://www.velcro.com/original-thinking/our-story/",
+    sourceNote: "Source officielle de l'entreprise sur l'observation des fruits accrocheurs et le développement du produit."
   },
   {
     id: "lotus",
@@ -42,7 +48,10 @@ const BIO_EXAMPLES = [
     inventionAlt: "Façade architecturale autonettoyante",
     inventionTitle: "Peintures et vitres autonettoyantes",
     inventionDesc: "En reproduisant les micro-bosses cireuses de la feuille de lotus, les ingénieurs ont conçu des revêtements hydrophobes qui se nettoient simplement avec la pluie.",
-    principle: "Principe scientifique : Super-hydrophobie (effet lotus)."
+    principle: "Principe scientifique : Super-hydrophobie (effet lotus).",
+    sourceTitle: "Wikipédia — Effet lotus",
+    sourceUrl: "https://en.wikipedia.org/wiki/Lotus_effect",
+    sourceNote: "Synthèse du phénomène physique. Consulter les références scientifiques citées avant une recherche approfondie."
   },
   {
     id: "termite",
@@ -56,8 +65,11 @@ const BIO_EXAMPLES = [
     inventionImage: "images/invention-eastgate.jpg",
     inventionAlt: "Immeuble Eastgate Centre inspiré des termitières",
     inventionTitle: "Immeubles climatisés naturellement",
-    inventionDesc: "L'immeuble Eastgate Centre au Zimbabwe imite les conduits des termitières pour faire circuler l'air frais et consomme 90 % d'énergie de climatisation en moins.",
-    principle: "Principe scientifique : Ventilation passive et convection thermique."
+    inventionDesc: "L'immeuble Eastgate Centre au Zimbabwe imite les conduits des termitières pour faire circuler l'air. Les économies réelles doivent être comparées à des bâtiments conventionnels similaires.",
+    principle: "Principe scientifique : Ventilation passive et convection thermique.",
+    sourceTitle: "Wikipédia — Eastgate Centre",
+    sourceUrl: "https://en.wikipedia.org/wiki/Eastgate_Centre,_Harare",
+    sourceNote: "Synthèse du bâtiment et de son système passif. Les chiffres d'économie doivent être vérifiés dans les études du projet."
   },
   {
     id: "shark",
@@ -72,7 +84,10 @@ const BIO_EXAMPLES = [
     inventionAlt: "Aile d'avion dotée d'un revêtement aérodynamique",
     inventionTitle: "Revêtements d'avions et coques de bateaux",
     inventionDesc: "Des films micro-rainurés inspirés des denticules de requin réduisent la traînée des avions et empêchent les algues de se fixer sur les navires.",
-    principle: "Principe scientifique : Hydrodynamisme et réduction de la traînée."
+    principle: "Principe scientifique : Hydrodynamisme et réduction de la traînée.",
+    sourceTitle: "Wikipédia — Denticule cutané",
+    sourceUrl: "https://en.wikipedia.org/wiki/Dermal_denticle",
+    sourceNote: "Synthèse scientifique sur les écailles de requin et leurs applications biomimétiques."
   },
   {
     id: "gecko",
@@ -87,7 +102,10 @@ const BIO_EXAMPLES = [
     inventionAlt: "Robot grimpeur bio-inspiré",
     inventionTitle: "Robots grimpeurs et pinces spatiales",
     inventionDesc: "Les ingénieurs fabriquent des adhésifs secs réutilisables permettant à des robots d'inspecter des parois lisses ou de capturer des débris dans l'espace.",
-    principle: "Principe scientifique : Forces d'adhésion microscopiques (Van der Waals)."
+    principle: "Principe scientifique : Forces d'adhésion microscopiques (Van der Waals).",
+    sourceTitle: "Wikipédia — Adhesion des geckos",
+    sourceUrl: "https://en.wikipedia.org/wiki/Gecko",
+    sourceNote: "Page générale sur les geckos; la section sur les setae permet d'approfondir le mécanisme d'adhésion."
   }
 ];
 

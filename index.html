@@ -18,13 +18,13 @@
     </div>
 
     <nav class="nav-tabs" role="tablist" aria-label="Navigation de l'atelier">
-      <button class="nav-btn active" data-view="presentation" role="tab" aria-selected="true">
+      <button class="nav-btn active" data-view="presentation" role="tab" aria-selected="true" aria-controls="view-presentation" tabindex="0">
         1. Présentation
       </button>
-      <button class="nav-btn" data-view="exemples" role="tab" aria-selected="false">
+      <button class="nav-btn" data-view="exemples" role="tab" aria-selected="false" aria-controls="view-exemples" tabindex="-1">
         2. Exemples
       </button>
-      <button class="nav-btn" data-view="quiz" role="tab" aria-selected="false">
+      <button class="nav-btn" data-view="quiz" role="tab" aria-selected="false" aria-controls="view-quiz" tabindex="-1">
         3. Quiz TNI
       </button>
     </nav>
@@ -38,7 +38,7 @@
     <!-- =========================================================
          PAGE 1 : PRÉSENTATION DU SUJET
          ========================================================= -->
-    <section id="view-presentation" class="view-section active" aria-labelledby="title-pres">
+    <section id="view-presentation" class="view-section active" role="tabpanel" tabindex="0" aria-labelledby="title-pres">
       <div class="hero-card">
         <span class="pill">Sciences &amp; Ingénierie • 5e année</span>
         <h2 id="title-pres">Qu'est-ce que la bio-inspiration (ou biomimétisme) ?</h2>
@@ -85,20 +85,32 @@
         <div>
           <h3>🎨 Mini-défi en classe</h3>
           <p>
-            Après avoir exploré les exemples et relevé le quiz, choisis un animal ou une plante et dessine
-            ton propre objet inventé grâce à l'une de ses caractéristiques !
+            Choisis un animal ou une plante, relie une caractéristique à un besoin humain,
+            puis décris ta solution avant de la dessiner.
           </p>
+          <div class="activity-prompts">
+            <label>1. Quel être vivant observes-tu ?
+              <input type="text" id="bioLivingBeing" placeholder="Ex. : une raie manta" />
+            </label>
+            <label>2. Quelle caractéristique ou capacité vas-tu imiter ?
+              <input type="text" id="bioCharacteristic" placeholder="Ex. : sa forme qui réduit la traînée" />
+            </label>
+            <label>3. Quel problème humain veux-tu résoudre ?
+              <input type="text" id="bioProblem" placeholder="Ex. : réduire la consommation d'un véhicule" />
+            </label>
+          </div>
         </div>
-        <button class="btn btn-primary" data-goto="exemples">
-          Explorer les exemples →
-        </button>
+        <div class="activity-actions">
+          <button class="btn btn-primary" data-goto="exemples">Explorer les exemples →</button>
+          <button id="printActivityBtn" class="btn btn-secondary" type="button">🖨️ Imprimer ma démarche</button>
+        </div>
       </div>
     </section>
 
     <!-- =========================================================
          PAGE 2 : EXEMPLES DE BIO-INSPIRATION
          ========================================================= -->
-    <section id="view-exemples" class="view-section" aria-labelledby="title-ex">
+    <section id="view-exemples" class="view-section" role="tabpanel" tabindex="0" aria-labelledby="title-ex">
       <div class="section-top">
         <div>
           <h2 id="title-ex">La Nature est un laboratoire d'inventions</h2>
@@ -120,7 +132,7 @@
     <!-- =========================================================
          PAGE 3 : QUIZ À CHOIX MULTIPLES (TNI)
          ========================================================= -->
-    <section id="view-quiz" class="view-section" aria-labelledby="title-quiz">
+    <section id="view-quiz" class="view-section" role="tabpanel" tabindex="0" aria-labelledby="title-quiz">
       <div class="section-top">
         <div>
           <h2 id="title-quiz">Quiz collectif : Sauras-tu retrouver l'inspiration ?</h2>

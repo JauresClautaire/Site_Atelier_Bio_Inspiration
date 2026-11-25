@@ -8,6 +8,7 @@ assert.ok(BIO_EXAMPLES.length >= 6, "Au moins 6 exemples de bio-inspiration requ
 BIO_EXAMPLES.forEach((ex) => {
   assert.ok(ex.natureTitle && ex.inventionTitle, `Titres manquants pour ${ex.id}`);
   assert.ok(ex.principle.startsWith("Principe scientifique :"), `Principe mal formaté pour ${ex.id}`);
+  assert.ok(ex.sourceTitle && ex.sourceUrl, `Source manquante pour ${ex.id}`);
 });
 
 assert.ok(BIO_QUIZ.length >= 6, "Au moins 6 questions de quiz requises.");

@@ -15,6 +15,7 @@
       const isMatch = btn.dataset.view === viewName;
       btn.classList.toggle("active", isMatch);
       btn.setAttribute("aria-selected", String(isMatch));
+      btn.setAttribute("tabindex", isMatch ? "0" : "-1");
     });
     views.forEach((sec) => {
       sec.classList.toggle("active", sec.id === `view-${viewName}`);
@@ -24,6 +25,22 @@
 
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => switchView(btn.dataset.view));
+  });
+
+  navBtns.forEach((btn, index) => {
+    btn.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+
+      let nextIndex = index;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % navBtns.length;
+      if (event.key === "ArrowLeft") nextIndex = (index - 1 + navBtns.length) % navBtns.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = navBtns.length - 1;
+
+      navBtns[nextIndex].focus();
+      switchView(navBtns[nextIndex].dataset.view);
+    });
   });
 
   document.querySelectorAll("[data-goto]").forEach((btn) => {
@@ -36,6 +53,8 @@
     const active = document.body.classList.toggle("tni-large");
     tniModeBtn.textContent = active ? "🖥️ Texte normal" : "🖥️ Mode TNI";
   });
+
+  document.getElementById("printActivityBtn").addEventListener("click", () => window.print());
 
   // =========================================================
   // PAGE 2 : RENDU DES EXEMPLES INTERACTIFS
@@ -50,6 +69,7 @@
       const btn = document.createElement("button");
       btn.className = `filter-btn ${cat === activeCategory ? "active" : ""}`;
       btn.textContent = cat;
+      btn.setAttribute("aria-pressed", String(cat === activeCategory));
       btn.addEventListener("click", () => {
         activeCategory = cat;
         renderFilters();
@@ -94,6 +114,12 @@
         </div>
         <div>
           <div class="principle-box">${item.principle}</div>
+          ${item.sourceUrl ? `
+            <a class="source-link" href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer">
+              Source : ${item.sourceTitle}
+            </a>
+            ${item.sourceNote ? `<small class="source-note">${item.sourceNote}</small>` : ""}
+          ` : ""}
           <button class="btn ${isInvention ? "btn-secondary" : "btn-primary"}" style="width:100%; margin-top:0.75rem;">
             ${isInvention ? "↩ Revoir l'inspiration naturelle" : "✨ Découvrir l'invention humaine"}
           </button>
@@ -178,7 +204,6 @@
       btn.textContent = `${String.fromCharCode(65 + idx)}. ${opt}`;
 
       if (chosen !== undefined) {
-        btn.disabled = true;
         if (idx === q.correctIndex) btn.classList.add("correct");
         else if (idx === chosen) btn.classList.add("wrong");
       }
@@ -196,7 +221,7 @@
     nextQuestionBtn.textContent = currentQuestionIdx === BIO_QUIZ.length - 1
       ? "Voir le résultat final 🏆"
       : "Question suivante →";
-    hintBtn.disabled = hintVisible || chosen !== undefined;
+    hintBtn.disabled = hintVisible;
   }
 
   prevQuestionBtn.addEventListener("click", () => {
