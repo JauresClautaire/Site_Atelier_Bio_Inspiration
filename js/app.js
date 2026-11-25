@@ -70,11 +70,24 @@
       const card = document.createElement("article");
       card.className = `example-card ${isInvention ? "mode-invention" : ""}`;
 
+      const imgSrc = isInvention ? item.inventionImage : item.natureImage;
+      const imgAlt = isInvention ? item.inventionAlt : item.natureAlt;
+      const fallbackEmoji = isInvention ? item.inventionEmoji : item.natureEmoji;
+
       card.innerHTML = `
         <div>
-          <div class="card-header">
-            <span class="mode-badge">${isInvention ? "⚙️ Invention humaine" : "🌿 Modèle dans la nature"}</span>
-            <span class="example-emoji">${isInvention ? item.inventionEmoji : item.natureEmoji}</span>
+          <div class="card-media">
+            <img
+              src="${imgSrc}"
+              alt="${imgAlt}"
+              class="example-photo"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="photo-fallback" style="display:none;">${fallbackEmoji}</div>
+            <span class="mode-badge badge-overlay">
+              ${isInvention ? "⚙️ Invention humaine" : "🌿 Modèle dans la nature"}
+            </span>
           </div>
           <h3 class="example-title">${isInvention ? item.inventionTitle : item.natureTitle}</h3>
           <p>${isInvention ? item.inventionDesc : item.natureDesc}</p>
@@ -95,7 +108,6 @@
       examplesGridEl.appendChild(card);
     });
   }
-
   // =========================================================
   // PAGE 3 : RENDU DU QUIZ TNI
   // =========================================================
