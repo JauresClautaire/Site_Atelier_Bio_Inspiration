@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atelier Bio-Inspiration — Quand la Nature inspire l'Ingénierie</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- BARRE DE NAVIGATION PRINCIPALE (TNI) -->
+  <header class="navbar">
+    <div class="brand">
+      <span class="logo-icon">🌿</span>
+      <div>
+        <h1>Atelier Bio-Inspiration</h1>
+        <p class="tagline">De l'observation du vivant aux inventions de demain</p>
+      </div>
+    </div>
+
+    <nav class="nav-tabs" role="tablist" aria-label="Navigation de l'atelier">
+      <button class="nav-btn active" data-view="presentation" role="tab" aria-selected="true">
+        1. Présentation
+      </button>
+      <button class="nav-btn" data-view="exemples" role="tab" aria-selected="false">
+        2. Exemples
+      </button>
+      <button class="nav-btn" data-view="quiz" role="tab" aria-selected="false">
+        3. Quiz TNI
+      </button>
+    </nav>
+
+    <button id="tniModeBtn" class="btn btn-outline" title="Agrandir le texte pour tableau interactif">
+      🖥️ Mode TNI
+    </button>
+  </header>
+
+  <main class="container">
+    <!-- =========================================================
+         PAGE 1 : PRÉSENTATION DU SUJET
+         ========================================================= -->
+    <section id="view-presentation" class="view-section active" aria-labelledby="title-pres">
+      <div class="hero-card">
+        <span class="pill">Sciences &amp; Ingénierie • 5e année</span>
+        <h2 id="title-pres">Qu'est-ce que la bio-inspiration (ou biomimétisme) ?</h2>
+        <p class="lead">
+          Depuis <strong>3,8 milliards d'années</strong>, les plantes, les animaux et les micro-organismes
+          ont développé des solutions ingénieuses pour se déplacer, s'abriter, économiser l'énergie ou se protéger.
+          La <strong>bio-inspiration</strong> consiste à observer ces super-pouvoirs de la nature pour concevoir
+          des technologies humaines plus efficaces et respectueuses de l'environnement.
+        </p>
+      </div>
+
+      <h3 class="section-heading">La démarche de l'ingénieur bio-inspiré en 3 étapes</h3>
+      <div class="steps-grid">
+        <article class="step-card">
+          <div class="step-num">Étape 1</div>
+          <div class="step-emoji">🔍</div>
+          <h4>Observer la nature</h4>
+          <p>
+            Identifier un être vivant qui réussit un exploit remarquable (ex. : un oiseau qui plonge sans éclabousser
+            ou une feuille toujours propre).
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-num">Étape 2</div>
+          <div class="step-emoji">🧬</div>
+          <h4>Comprendre le secret</h4>
+          <p>
+            Analyser la forme, la texture ou la structure microscopique qui explique ce phénomène scientifique.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-num">Étape 3</div>
+          <div class="step-emoji">⚙️</div>
+          <h4>Inventer la solution</h4>
+          <p>
+            Adapter ce principe naturel pour résoudre un problème humain (transports, architecture, médecine, énergie).
+          </p>
+        </article>
+      </div>
+
+      <div class="activity-banner">
+        <div>
+          <h3>🎨 Mini-défi en classe</h3>
+          <p>
+            Après avoir exploré les exemples et relevé le quiz, choisis un animal ou une plante et dessine
+            ton propre objet inventé grâce à l'une de ses caractéristiques !
+          </p>
+        </div>
+        <button class="btn btn-primary" data-goto="exemples">
+          Explorer les exemples →
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PAGE 2 : EXEMPLES DE BIO-INSPIRATION
+         ========================================================= -->
+    <section id="view-exemples" class="view-section" aria-labelledby="title-ex">
+      <div class="section-top">
+        <div>
+          <h2 id="title-ex">La Nature est un laboratoire d'inventions</h2>
+          <p class="muted">
+            Clique sur chaque carte pour basculer entre <strong>le modèle naturel</strong> et <strong>l'invention humaine</strong>.
+          </p>
+        </div>
+        <div class="filter-group" id="categoryFilters"></div>
+      </div>
+
+      <div id="examplesGrid" class="examples-grid"></div>
+
+      <div class="bottom-nav">
+        <button class="btn btn-secondary" data-goto="presentation">← Retour à la présentation</button>
+        <button class="btn btn-primary" data-goto="quiz">Passer au Quiz TNI →</button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PAGE 3 : QUIZ À CHOIX MULTIPLES (TNI)
+         ========================================================= -->
+    <section id="view-quiz" class="view-section" aria-labelledby="title-quiz">
+      <div class="section-top">
+        <div>
+          <h2 id="title-quiz">Quiz collectif : Sauras-tu retrouver l'inspiration ?</h2>
+          <p class="muted">Sélectionne une réponse en classe pour vérifier immédiatement la solution.</p>
+        </div>
+        <div class="score-badge">
+          Score : <strong id="scoreDisplay">0</strong> / <span id="totalDisplay">0</span>
+        </div>
+      </div>
+
+      <div id="quizCard" class="quiz-card"></div>
+
+      <div class="quiz-controls">
+        <button id="prevQuestionBtn" class="btn btn-secondary">← Question précédente</button>
+        <button id="hintBtn" class="btn btn-outline">💡 Afficher un indice</button>
+        <button id="nextQuestionBtn" class="btn btn-primary">Question suivante →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Atelier STEM Bio-Inspiration — Co-conçu par <strong>Jaures Clautaire Kanga</strong> &amp; <strong>Théo Grégoire</strong></p>
+  </footer>
+
+  <script src="js/examplesData.js"></script>
+  <script src="js/quizData.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
